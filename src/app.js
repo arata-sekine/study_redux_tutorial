@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {createStore} from 'redux';
-/* Reducerから Store をインポート */
 import counter from './counter';
 
 const store = createStore(counter);
