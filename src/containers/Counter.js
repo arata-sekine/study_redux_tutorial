@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {ACTION_DECREMENT_COUNTER, ACTION_INCREMENT_COUNTER} from '../actions/index'
+import {ACTION_DECREMENT_COUNTER, ACTION_INCREMENT_COUNTER} from '../actions'
 import CounterComponent from '../components/CounterComponent'
 
 
