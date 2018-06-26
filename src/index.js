@@ -1,34 +1,18 @@
 /* ライブラリのインポート */
+import React from 'react';
+import {render} from 'react-dom'
 import {createStore} from 'redux'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
 //reducerを設定
-import counter from './counter'
+import counterReducer from './reducers/counterReducer'
 //viewを設定
-import App from './app'
+import App from './components/App'
 //storeを作成
-const store = createStore(counter);
+const store = createStore(counterReducer);
 
-//画面更新用の関数を作成
-const render = () => {
-    ReactDOM.render(
-        <App
-            value={store.getState()}
-            onIncrement={() =>
-                store.dispatch({
-                    type: 'INCREMENT'
-                })}
-            onDecrement={() =>
-                store.dispatch({
-                    type: 'DECREMENT'
-                })}
-        />,
-        document.getElementById('root')
-    )
-};
-
-//subscribe関数に、現在のstateの状況を画面に表示する関数をセット
-store.subscribe(render);
-
-//最初に画面を表示（0が表示される)
-render();
+render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root')
+);
